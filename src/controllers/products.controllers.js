@@ -2,10 +2,11 @@ import sequelize from "../database/connection.js";
 
 const getProducts = async (req, res) => {
   try {
-    const { QueryTypes } = require("sequelize");
+    const { QueryTypes } = sequelize;
     const products = await sequelize.query("SELECT * FROM `product`", {
       type: QueryTypes.SELECT,
     });
+    console.log(products);
     res.json(products);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -15,7 +16,7 @@ const getProducts = async (req, res) => {
 const getProductById = async (req, res) => {
   try {
     const { id } = req.params;
-    const { QueryTypes } = require("sequelize");
+    const { QueryTypes } = sequelize;
     const product = await sequelize.query(
       "SELECT * FROM `product` WHERE `id` = ?",
       {
@@ -32,7 +33,7 @@ const getProductById = async (req, res) => {
 const getProductsByCategory = async (req, res) => {
   try {
     const { category } = req.params;
-    const { QueryTypes } = require("sequelize");
+    const { QueryTypes } = sequelize;
     const products = await sequelize.query(
       "SELECT * FROM `product` WHERE `category` = ?",
       {
@@ -49,7 +50,7 @@ const getProductsByCategory = async (req, res) => {
 const getProductsByQuery = async (req, res) => {
   try {
     const { name } = req.params;
-    const { QueryTypes } = require("sequelize");
+    const { QueryTypes } = sequelize;
     const products = await sequelize.query(
       "SELECT * FROM `product` WHERE `name` LIKE ?",
       {
