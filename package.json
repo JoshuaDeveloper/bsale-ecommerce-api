@@ -1,0 +1,29 @@
+{
+  "name": "bsale-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babe-node": "babel-node --presets=@babel/preset-env",
+    "dev": "nodemon --exec npm run babe-node src/index.js"
+  },
+  "keywords": [],
+  "author": "Joshua Sosa Cruz",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.25.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.3",
+    "@babel/node": "^7.19.1",
+    "@babel/preset-env": "^7.19.4",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20"
+  }
+}
