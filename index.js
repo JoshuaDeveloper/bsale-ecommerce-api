@@ -1,5 +1,4 @@
-import app from "./app.js";
-import sequelize from "./database/connection.js";
+import app from "./src/app.js";
 
 const main = async () => {
   try {
