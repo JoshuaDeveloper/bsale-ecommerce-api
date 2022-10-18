@@ -6,7 +6,8 @@ import cors from "cors";
 const app = express();
 
 //Settings
-app.set("port", 8080);
+const PORT = process.env.PORT || 8000;
+app.set("port", PORT);
 
 //Middlewares
 
