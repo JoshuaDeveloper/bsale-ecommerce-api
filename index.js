@@ -3,7 +3,7 @@ import sequelize from "./src/database/connection.js";
 
 const main = async () => {
   try {
-    await sequelize.authenticate();
+    // await sequelize.authenticate();
     console.log("Connection has been established successfully.");
     app.listen(app.get("port"));
     console.log("Server on port", app.get("port"));

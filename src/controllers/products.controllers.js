@@ -49,12 +49,14 @@ const getProductsByCategory = async (req, res) => {
 
 const getProductsByQuery = async (req, res) => {
   try {
-    const { name } = req.params;
+    console.log("wada req", req);
+    const { name } = req.query;
+    console.log("esta wada", name);
     const { QueryTypes } = sequelize;
     const products = await sequelize.query(
       "SELECT * FROM `product` WHERE `name` LIKE ?",
       {
-        replacements: [`%${name}%`],
+        replacements: [`%%${name}%%`],
         type: QueryTypes.SELECT,
       }
     );
