@@ -6,6 +6,6 @@ const router = Router();
 router.get("/", productsController.getProducts);
 router.get("/:id", productsController.getProductById);
 router.get("/category/:category", productsController.getProductsByCategory);
-router.get("/search/:query", productsController.getProductsByQuery);
+router.get("/search", productsController.getProductsByQuery);
 
 export default router;
