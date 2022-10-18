@@ -32,3 +32,13 @@ La presente permitirá al usuario extraer información con los productos que sea
 
 > Retornará todos los productos de acuerdo a la busqueda ingresada.
 > **/api/products/search/:query**
+
+###### 4. Productos - Tabla MySQL
+
+| id        | identificador único                   |
+| --------- | ------------------------------------- |
+| name      | nombre del producto                   |
+| url_image | url de la imagen asociada al producto |
+| price     | precio de venta del producto          |
+| discount  | porcentaje de descuento               |
+| category  | identificador de categoría            |
