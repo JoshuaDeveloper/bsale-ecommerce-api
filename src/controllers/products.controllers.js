@@ -1,4 +1,4 @@
-import sequelize from "../database/connection";
+import sequelize from "../database/connection.js";
 
 const getProducts = async (req, res) => {
   try {
