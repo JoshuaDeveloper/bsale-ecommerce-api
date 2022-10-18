@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "babe-node": "babel-node --presets=@babel/preset-env",
     "dev": "nodemon --exec npm run babe-node src/index.js",
-    "start": "node index.js"
+    "start": "npm run babe-node src/index.js"
   },
   "keywords": [],
   "author": "Joshua Sosa Cruz",
