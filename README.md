@@ -1,6 +1,7 @@
 # Bsale-Ecommerce-Api
 
-La presente permitirá al usuario extraer información con los productos que sea de su interes, por lo que se cuenta con 3 end-points.
+La API permitirá al usuario extraer información con los productos que sea de su interes, por lo que se cuenta con 3 end-points.
+Se utiliza una base de datos Mysql la cual cuenta dos dos tablas Categoría y Productos, para el desarrollo de esta aplicación solo se utilizá la tabla categoría.
 
 ## Tecnologías
 
@@ -25,11 +26,13 @@ La presente permitirá al usuario extraer información con los productos que sea
 
 ###### 2. GET Lista de Productos por Categoría
 
+> Recibe el id de la categoría deseada
 > Retornará todos los productos agrupados por categoría.
 > **/api/products/category/:id**
 
 ###### 3. GET Lista de Productos por Query
 
+> Recive la query que se desea buscar, ejemplo("coca")
 > Retornará todos los productos de acuerdo a la busqueda ingresada.
 > **/api/products/search/:query**
 
@@ -42,3 +45,8 @@ La presente permitirá al usuario extraer información con los productos que sea
 | price     | precio de venta del producto          |
 | discount  | porcentaje de descuento               |
 | category  | identificador de categoría            |
+
+###### 5. Adicional (GET Buscar productos por id)
+
+> Recive el id del producto.
+> Retornará todos el producto con el id adecuado.

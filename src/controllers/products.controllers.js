@@ -1,71 +1,54 @@
-import sequelize from "../database/connection.js";
+import {
+  Products,
+  ProductById,
+  ProductsByCategory,
+  ProductsByQuery,
+} from "../models/product.model.js";
 
+// endpoint to get all products
 const getProducts = async (req, res) => {
   try {
-    const { QueryTypes } = sequelize;
-    const products = await sequelize.query("SELECT * FROM `product`", {
-      type: QueryTypes.SELECT,
-    });
-    console.log(products);
+    const products = await Products();
     res.json(products);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
+// endpoint to get a product by id
 const getProductById = async (req, res) => {
   try {
     const { id } = req.params;
-    const { QueryTypes } = sequelize;
-    const product = await sequelize.query(
-      "SELECT * FROM `product` WHERE `id` = ?",
-      {
-        replacements: [id],
-        type: QueryTypes.SELECT,
-      }
-    );
-    res.json(product);
+    const products = await ProductById(id);
+    res.json(products);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
+// endpoint to get products by category
 const getProductsByCategory = async (req, res) => {
   try {
     const { category } = req.params;
-    const { QueryTypes } = sequelize;
-    const products = await sequelize.query(
-      "SELECT * FROM `product` WHERE `category` = ?",
-      {
-        replacements: [category],
-        type: QueryTypes.SELECT,
-      }
-    );
+    const products = await ProductsByCategory(category);
     res.json(products);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
+// endpoint to get products by query
 const getProductsByQuery = async (req, res) => {
   try {
-    console.log("wada req", req);
     const { name } = req.query;
-    console.log("esta wada", name);
-    const { QueryTypes } = sequelize;
-    const products = await sequelize.query(
-      "SELECT * FROM `product` WHERE `name` LIKE ?",
-      {
-        replacements: [`%%${name}%%`],
-        type: QueryTypes.SELECT,
-      }
-    );
+    const products = await ProductsByQuery(name);
     res.json(products);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
+// export all methods
 export const methods = {
   getProducts,
   getProductById,
